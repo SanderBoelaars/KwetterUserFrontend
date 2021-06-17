@@ -1,0 +1,27 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.mat-form-field {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-card{
+  width: 200px;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.error-message{
+  color: red;
+  width: 100%;
+}
+

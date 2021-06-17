@@ -1,0 +1,15 @@
+<div class="container">
+  <form [formGroup]="newMessageForm" (submit)="postMessage()">
+    <mat-card fxLayout="column" fxLayoutGap="10px" class="example-card">
+
+      <mat-form-field appearance="outline">
+        <mat-label>Post a new message!</mat-label>
+        <input matInput placeholder="" formControlName="message" class="post-content-input" autocomplete="off">
+      </mat-form-field>
+
+      <div class="new-post-button">
+        <button mat-button color="primary" type="submit">Post</button>
+      </div>
+    </mat-card>
+  </form>
+</div>
