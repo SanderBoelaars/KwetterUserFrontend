@@ -4,7 +4,7 @@ metadata:
   name: kwetter-user-frontend
 spec:
   selector:
-    app: KwetterUserFrontend
+    app: kwetter-user-frontend
   ports:
     - protocol: TCP
       port: 80
