@@ -1,12 +1,11 @@
-# Stage 1
-FROM node:10-alpine as build-step
-RUN mkdir -p /app
-WORKDIR /app
-COPY package.json /app
-RUN npm install
-COPY . /app
-RUN npm run build --prod
+FROM node as build
+WORKDIR /frontend
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY ./ /frontend/
+ARG configuration=production
+RUN npm run build -- --output-path=./dist/out --configuration $configuration
 
-# Stage 2
-FROM nginx:1.17.1-alpine
-COPY --from=build-step /app/dist/KwetterUserFrontend /usr/share/nginx/html
+FROM nginx:1.15
+COPY --from=build /frontend/dist/out/ /usr/share/nginx/html
+COPY ./nginx-custom.conf /etc/nginx/conf.d/default.conf
