@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: kwetter-user-frontend
+  type: NodePort
   ports:
     - protocol: TCP
       port: 80
